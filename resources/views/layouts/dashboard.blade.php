@@ -15,6 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -160,7 +162,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{route('dashboard.home')}}" class="brand-link">
       <img src="{{asset('assets/img/logo/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Admin panel</span>
     </a>
@@ -194,8 +196,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item {{ request()->routeIs('dashboard.home','dashboard.users') ? 'menu-open' : '' }}">
+            <a class="nav-link {{ request()->routeIs('dashboard.home','dashboard.users') ? 'active' : '' }}" href="{{ route('dashboard.home') }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -210,17 +212,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
+                  <a class="nav-link {{ request()->routeIs('dashboard.users') ? 'active' : '' }}" href="{{ route('dashboard.users') }}">
+
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Users</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item {{ request()->routeIs('dashboard.categories','dashboard.articles') ? 'menu-open' : '' }}">
+            <a class="nav-link {{ request()->routeIs('dashboard.categories','dashboard.articles') ? 'active' : '' }}" href="{{ route('dashboard.categories') }}">
+              <i class="fas fa-clipboard-list"></i>
+              <p>
+                Categories
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
                   <a class="nav-link {{ request()->routeIs('dashboard.categories') ? 'active' : '' }}" href="{{ route('dashboard.categories') }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link {{ request()->routeIs('dashboard.blogs') ? 'active' : '' }}" href="{{ route('dashboard.blogs') }}">
+                  <a class="nav-link {{ request()->routeIs('dashboard.articles') ? 'active' : '' }}" href="{{ route('dashboard.articles') }}">
+
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Blogs</p>
+                  <p>Articles</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item {{ request()->routeIs('dashboard.blogs','dashboard.posts') ? 'menu-open' : '' }}">
+            <a class="nav-link {{ request()->routeIs('dashboard.blogs','dashboard.posts') ? 'active' : '' }}" href="{{ route('dashboard.blogs') }}">
+              <i class="fas fa-envelope"></i>
+              <p>
+                Blogs
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('dashboard.blogs') ? 'active' : '' }}" href="{{ route('dashboard.blogs') }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Blogs</p>
+              </a>
+            </li>
               <li class="nav-item">
                   <a class="nav-link {{ request()->routeIs('dashboard.posts') ? 'active' : '' }}" href="{{ route('dashboard.posts') }}">
 

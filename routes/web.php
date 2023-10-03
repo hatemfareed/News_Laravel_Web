@@ -47,5 +47,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/blogs', [dashboardController::class, 'blogs'])->name('dashboard.blogs');
     Route::get('/dashboard/category', [dashboardController::class, 'category'])->name('dashboard.categories');
     Route::get('/dashboard/posts', [dashboardController::class, 'posts'])->name('dashboard.posts');
+    Route::get('/dashboard/articles', [dashboardController::class, 'articles'])->name('dashboard.articles');
+    Route::get('/dashboard/users', [dashboardController::class, 'users'])->name('dashboard.users');
+
 
 });

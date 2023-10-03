@@ -8,8 +8,11 @@ use App\Models\User;
 class dashboardController extends Controller
 {
     public function home(){
+         return view('dashboard.home');
+     }
+     public function users(){
         $users = User::paginate(10);
-         return view('dashboard.home', compact('users'));
+         return view('dashboard.users', compact('users'));
      }
  
      public function blogs(){
@@ -24,5 +27,9 @@ class dashboardController extends Controller
      public function posts(){
         
          return view('dashboard.posts');
+     }
+     public function articles(){
+        
+         return view('dashboard.articles');
      }
 }

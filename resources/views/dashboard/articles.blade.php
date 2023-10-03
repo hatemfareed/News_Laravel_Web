@@ -1,7 +1,7 @@
 
 @extends('layouts.dashboard')
 
-@section('title', 'Posts')
+@section('title', 'Articles')
 
 @section('content')
 <div class="content-wrapper">
@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">posts</h1>
+            <h1 class="m-0">Articles</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Posts</li>
+              <li class="breadcrumb-item active">Articles</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -34,14 +34,14 @@
 
             <div class="card card-primary card-outline">
               <div class="card-body">
-                <h5 class="card-title">Posts</h5>
+                <h5 class="card-title">Articles</h5>
                 <table class="table table-striped">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">title</th>
                       <th scope="col">user</th>
-                      <th scope="col">blog</th>
+                      <th scope="col">Category</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
@@ -103,6 +103,7 @@
           <!-- /.col-md-6 -->
           <div class="col-lg-6 ">
             
+
             <div class="card card-primary card-outline">
               <div class="card-header">
                 <h5 class="m-0">View</h5>
