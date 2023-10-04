@@ -56,7 +56,7 @@
                                         </td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->type}}</td>
+                                        <td>{{ $user->role }}</td>
                                         <td>
                                             <div class="d-flex justify-content-end">
                                                 <form

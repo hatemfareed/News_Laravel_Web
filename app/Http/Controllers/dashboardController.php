@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role ;
 
 class dashboardController extends Controller
 {
@@ -12,6 +13,11 @@ class dashboardController extends Controller
      }
      public function users(){
         $users = User::paginate(10);
+        // foreach ($users as $user) {
+        //     $roles = $user->roles(); // This will get the roles for each user
+        //     dd($roles->pluck('name'));
+        // }
+        
          return view('dashboard.users', compact('users'));
      }
      public function blogs(){
@@ -38,10 +44,14 @@ class dashboardController extends Controller
         $user->delete();
         return redirect()->route('dashboard.users')->with('success', 'User deleted successfully');
     }
-
-    public function editUsers($id)
+    public function addAbility(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        return view('dashboard.users.edit', compact('user'));
+        $request->validate([
+            'ability' => 'required|string|max:255',
+        ]);
+        
+        return redirect()->route('dashboard.users')->with('success', 'User deleted successfully');
     }
+
 }
