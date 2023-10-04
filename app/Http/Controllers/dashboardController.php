@@ -14,7 +14,6 @@ class dashboardController extends Controller
         $users = User::paginate(10);
          return view('dashboard.users', compact('users'));
      }
- 
      public function blogs(){
         
          return view('dashboard.blogs');
@@ -32,4 +31,17 @@ class dashboardController extends Controller
         
          return view('dashboard.articles');
      }
+
+    public function destroyUsers($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('dashboard.users')->with('success', 'User deleted successfully');
+    }
+
+    public function editUsers($id)
+    {
+        $user = User::findOrFail($id);
+        return view('dashboard.users.edit', compact('user'));
+    }
 }

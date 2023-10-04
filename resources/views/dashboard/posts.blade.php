@@ -59,7 +59,7 @@
                       <td>
                         <form action="#" method="GET">
                           @csrf
-                          <button type="submit" class="btn btn-secondary">View</button>
+                          <button type="submit" class="btn btn"><i class="fa-solid fa-eye"></i></button>
                       </form>                    </td>
                     </tr>
                     <tr>
@@ -74,8 +74,9 @@
                       <td>
                         <form action="#" method="GET">
                           @csrf
-                          <button type="submit" class="btn btn-secondary">View</button>
-                      </form>                   </td>
+                          <button type="submit" class="btn btn"><i class="fa-solid fa-eye"></i></button>
+                      </form>                   
+                    </td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>                 
@@ -89,7 +90,7 @@
                       <td>
                         <form action="#" method="GET">
                           @csrf
-                          <button type="submit" class="btn btn-secondary">View</button>
+                          <button type="submit" class="btn btn"><i class="fa-solid fa-eye"></i></button>
                       </form>                    </td>
                     </tr>
                   </tbody>
@@ -108,7 +109,7 @@
                 <h5 class="m-0">View</h5>
               </div>
               <div class="card-body">
-                <img src="{{ asset('assets\img\profile\mohammed.jpg') }}" alt="#" class="img-fluid w-80 h-80" >
+                <img src="{{ asset('assets\img\profile\mohammed.jpg') }}" alt="#" class="img-fluid" height="50px" width="50%" >
                 <h2>how to play football i a gaza strip</h2>
                 <p>how to play football i a gaza striphow to play football i a gaza striphow to play football i a gaza strip</p>
                 <h6>
