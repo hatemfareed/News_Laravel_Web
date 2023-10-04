@@ -53,4 +53,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/dashboard/users/{id}',[dashboardController::class, 'destroyUsers'])->name('dashboard.users.destroy');
+    Route::post('/dashboard/users/{id}',[dashboardController::class, 'addAbility'])->name('dashboard.users.addAbility');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::post('/dashboard/category',[dashboardController::class, 'addCategory'])->name('dashboard.category.addCategory');
 });
