@@ -220,8 +220,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-          <li class="nav-item nav-item {{ request()->routeIs('dashboard.categories','dashboard.articles') ? 'menu-open' : '' }}">
-            <a class="nav-link {{ request()->routeIs('dashboard.categories','dashboard.articles') ? 'active' : '' }}" href="{{ route('dashboard.categories') }}">
+          <li class="nav-item nav-item {{ request()->routeIs('dashboard.categories','dashboard.articles','dashboard.category.edit' , 'dashboard.category.show') ? 'menu-open' : '' }}">
+            <a class="nav-link {{ request()->routeIs('dashboard.categories','dashboard.articles' , 'dashboard.category.edit' ,'dashboard.category.show') ? 'active' : '' }}" href="{{ route('dashboard.categories') }}">
               <i class="fas fa-clipboard-list"></i>
               <p>
                 Categories
@@ -230,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a class="nav-link {{ request()->routeIs('dashboard.categories') ? 'active' : '' }}" href="{{ route('dashboard.categories') }}">
+                  <a class="nav-link {{ request()->routeIs('dashboard.categories' , 'dashboard.category.edit','dashboard.category.show') ? 'active' : '' }}" href="{{ route('dashboard.categories') }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categories</p>
                 </a>

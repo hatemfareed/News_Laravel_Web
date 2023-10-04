@@ -24,7 +24,7 @@ class dashboardController extends Controller
  
      public function category(){
         $categories = Category::paginate(10);
-         return view('dashboard.category' , compact('categories'));
+         return view('dashboard.categories.index' , compact('categories'));
      }
      public function posts(){
         
@@ -61,23 +61,48 @@ class dashboardController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         
-        $category = new Category();
-        $category->name = $request->name;
-        $category->description = $request->description;
-        $category->type = $request->type;
+        
+        $category = new Category($request->all());
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = time() . $request->name .'.' . $file->getClientOriginalExtension();
             $path = $file->move(public_path('assets\img\Categories/'), $fileName);
             $category->image = $fileName;
+            
         }
         $category->save();
         return redirect()->route('dashboard.categories')->with('success', 'Category added successfully');
-
-        
-
+    }
+    public function editCategory($id , Request $request)
+    {
+        $categories = Category::paginate(10);
+        $category = $categories->find($id);
+        $category->update($request->all());
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . $request->name .'.' . $file->getClientOriginalExtension();
+            $path = $file->move(public_path('assets\img\Categories/'), $fileName);
+            $category->image = $fileName;
+            $category->save();
+            
+        }
+        $category->save();
+        return view('dashboard.categories.edit', compact('category' , 'categories'));
     }
 
+    public function destroyCategory($id)
+    {
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()->route('dashboard.categories')->with('success', 'Category deleted successfully');
+    }
 
+    public function showCategory($id)
+    {
+        $categories = Category::paginate(10);
+        $category = $categories->find($id);
+        return view('dashboard.categories.show', compact('category' , 'categories'));
+    }
 
+    
 }
